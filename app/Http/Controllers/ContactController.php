@@ -14,9 +14,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //$contacts = Contact::get();
-
-        return 'all';
+       //$contacts = Contact::get();
+        $contacts = [];
+        return view('contact.index', compact('contacts'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-       return 'view create contact';
+       return view('contact.create_or_edit');
     }
 
     /**
@@ -74,7 +74,7 @@ class ContactController extends Controller
         if(!$contact)
             return  'err';
 
-        return 'view edit contact';
+            return view('contact.create_or_edit', compact('contact'));
     }
 
     /**
