@@ -15,7 +15,13 @@ class ContactController extends Controller
     public function index()
     {
        //$contacts = Contact::get();
-        $contacts = [];
+       $contact = new Contact;
+       $contact->id = 1;
+        $contact->first_name = 'Darlan';
+        $contact->last_name  = 'Diogo';
+        $contact->email = 'teste@teste.com.br';
+        $contact->phone = '219999999';
+        $contacts = [ $contact ];
         return view('contact.index', compact('contacts'));
     }
 
@@ -41,7 +47,6 @@ class ContactController extends Controller
         $contact->first_name = $request->first_name;
         $contact->last_name  = $request->last_name;
         $contact->email = $request->email;
-        $contact = new Contact;
         $contact->phone = $request->phone;
 
         if($contact->save())
@@ -93,7 +98,6 @@ class ContactController extends Controller
         $contact->first_name = $request->first_name;
         $contact->last_name  = $request->last_name;
         $contact->email = $request->email;
-        $contact = new Contact;
         $contact->phone = $request->phone;
 
         if($contact->save())
