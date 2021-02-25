@@ -9,7 +9,7 @@
 ## Instalação
 - Faça o clone ou download do projeto acima
 - Acesse a pasta teste-csp
-- configure o arquivo as seguintes variavéis de ambiente no arquivo .env 
+- configure as seguintes variavéis de ambiente no arquivo .env 
 
     * DB_CONNECTION=mysql
     * DB_HOST=127.0.0.1
