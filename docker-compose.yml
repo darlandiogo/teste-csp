@@ -1,15 +1,15 @@
 version: "3.4"
 services:
   app:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
-    container_name: kieling
-    working_dir: /kieling
+    container_name: teste-csp
+    working_dir: /teste-csp
     image: php:alpine
     volumes:
-      - "./:/kieling"
-    command: php artisan migrate 
+      - "./:/teste-csp"
+    command: php artisan migrate
     command: php artisan serve
     ports:
       - 8000:8000

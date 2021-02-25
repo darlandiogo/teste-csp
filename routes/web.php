@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('/contacts')->group(function () {
+    Route::get('', 'ContactController@index')->name('contact');
+    Route::get('/create', 'ContactController@create')->name('contact.create');
+    Route::post('', 'ContactController@store')->name('contact.store');
+    Route::get('/edit/{id}', 'ContactController@edit')->name('contact.edit');
+    Route::put('/{id}', 'ContactController@update')->name('contact.update');
+    Route::delete('/{id}', 'ContactController@destroy')->name('contact.destroy');
+});
+
+
