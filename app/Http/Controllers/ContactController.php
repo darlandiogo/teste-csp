@@ -25,7 +25,7 @@ class ContactController extends Controller
     public function index(Request $request)
     {
         $contacts = $this->contactRepository->all($request->only([
-         'searchTerm'
+         'search'
         ]));
 
         return view('contact.index', compact('contacts'));

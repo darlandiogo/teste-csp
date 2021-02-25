@@ -1,13 +1,17 @@
-##Project teste-csp
+#Project teste-csp
+- Aplicação em PHP, Laravel e MySQL que gerencie e disponibilize uma agenda de contatos de pessoas.
 
-Desafio:
-Criar uma aplicação em PHP, Laravel e MySQL que gerencie e disponibilize uma agenda de contatos de pessoas. Neste sistema, deve conter:
-- Funcionalidades para cadastro, edição, exclusão e listagem de contatos.
-- Cada contato deve conter apenas:
-.Primeiro Nome
-.Último Nome
-.E-mail
-.Telefone
-- Todos os campos acima são obrigatórios.
-- O front-end deve ser estilizado com CSS - poderia utilizar um framework como bootstrap.
-- Na listagem, deve ser possível realizar filtro por nomes.
+#Pré-requisitos para rodar o projeto
+    - GIT (https://git-scm.com/)
+    - Docker (https://www.docker.com/)
+    - Docker compose (https://docs.docker.com/compose/)
+# Instalação
+
+- Faça o clone/ou download do projeto em https://github.com/darlandiogo/teste-csp
+
+- Acesse a pasta teste-csp
+
+# Comandas para executar o projeto ( Linux )
+- sudo docker-compose build para instalar as dependências
+- sudo docker-compose up -d para inicializar o projeto
+- sudo docker-compose down para parar o projeto

@@ -12,7 +12,7 @@
     </div>
     <div class="card-body">
         <div class="d-flex justify-content-end">
-            <input type="text" class="form-control" style="width:30%" id="searchTerm" placeholder="Buscar..." value="{{ Request::input('searchTerm') ?? ''}}"/>
+            <input type="text" class="form-control" style="width:50%"id="searchTerm" placeholder="Buscar..." value="{{ Request::input('searchTerm') ?? ''}}"/>
             <button type="button" style="margin:0" id="searchTermBtn" class="btn btn-sm btn-primary">
                 <i class="fas fa-search"></i>
             </button>
@@ -66,7 +66,7 @@
             event.preventDefault();
             value = $("#searchTerm").val();
             if(value != '') {
-                window.location = `{{route('contact')}}?searchTerm=${value}`
+                window.location = `{{route('contact')}}?search=${value}`
             }
             else {
                 window.location = `{{route('contact')}}`;

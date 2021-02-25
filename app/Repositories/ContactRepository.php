@@ -11,8 +11,8 @@ class ContactRepository implements Repository
     {
         $query = DB::table('contacts')->where('contacts.deleted_at', null);
 
-        if(isset($params['searchTerm']))
-            $query->where('contacts.first_name', 'like', '%' . $params['searchTerm'] . '%');
+        if(isset($params['search']))
+            $query->where(DB::raw("CONCAT(contacts.first_name,' ', contacts.last_name)"), 'like', '%' . $params['search'] . '%');
 
         return $query->paginate(5);
     }

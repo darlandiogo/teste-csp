@@ -27,7 +27,7 @@ class ContactRequest extends FormRequest
             'first_name' => 'required|min:2|max:100',
             'last_name' => 'required|min:2|max:100',
             'email' => 'required|email',
-            'phone' => 'required|min:8|max:15',
+            'phone' => 'required|min:14|max:15',
         ];
     }
 
@@ -48,10 +48,8 @@ class ContactRequest extends FormRequest
             'email.required' => 'O campo E-mail  é obrigatório.',
             'email.email' => 'O campo E-mail não é válido.',
             'phone.required' => 'O campo Telefone  é obrigatório.',
-            'phone.min' => 'O campo Telefone precisa ter no mínimo 8 caracteres.',
-            'phone.max' => 'O campo Telefone precisa ter no máximo 11 caracteres.',
-
-
+            'phone.min' => 'O campo Telefone precisa ter no mínimo 10 caracteres com o DDD.',
+            'phone.max' => 'O campo Telefone precisa ter no máximo 11 caracteres com o DDD.',
         ];
     }
 }
