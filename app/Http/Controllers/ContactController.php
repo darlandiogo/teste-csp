@@ -2,26 +2,32 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
-use App\Models\Contact;
+use App\Repositories\ContactRepository;
 class ContactController extends Controller
 {
+    protected $contactRepository;
+
+    /**
+     * Initialize ContactController with ContactRepository
+     * @return empty
+     */
+    public function __construct(ContactRepository $contactRepository)
+    {
+        $this->contactRepository = $contactRepository;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-       //$contacts = Contact::get();
-       $contact = new Contact;
-       $contact->id = 1;
-        $contact->first_name = 'Darlan';
-        $contact->last_name  = 'Diogo';
-        $contact->email = 'teste@teste.com.br';
-        $contact->phone = '219999999';
-        $contacts = [ $contact ];
+        $contacts = $this->contactRepository->all($request->only([
+         'searchTerm'
+        ]));
+
         return view('contact.index', compact('contacts'));
     }
 
@@ -43,16 +49,14 @@ class ContactController extends Controller
      */
     public function store(ContactRequest $request)
     {
-        $contact = new Contact;
-        $contact->first_name = $request->first_name;
-        $contact->last_name  = $request->last_name;
-        $contact->email = $request->email;
-        $contact->phone = $request->phone;
+        $result = $this->contactRepository->create($request->only([
+            'first_name', 'last_name', 'email', 'phone'
+        ]));
 
-        if($contact->save())
-            return 'add contact with success';
+        if($result)
+            return redirect()->back()->with('success', 'Contato criado com sucesso.');
 
-        return 'failed to add the new contact ';
+        return redirect()->back()->withErrors(['message' => 'Ocorreu um erro ao adicionar o novo contato.']);
     }
 
     /**
@@ -74,12 +78,12 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        $contact = Contact::find($id);
+        $contact = $this->contactRepository->getById($id);
 
         if(!$contact)
-            return  'err';
+            return redirect()->back()->withErrors(['message' => 'Ocorreu um erro ao localizar o contato selecionado.']);
 
-            return view('contact.create_or_edit', compact('contact'));
+        return view('contact.create_or_edit', compact('contact'));
     }
 
     /**
@@ -91,19 +95,14 @@ class ContactController extends Controller
      */
     public function update(ContactRequest $request, $id)
     {
-        $contact =  Contact::find($id);
-        if(!$contact)
-            return  'err';
+        $result = $this->contactRepository->edit($request->only([
+            'first_name', 'last_name', 'email', 'phone'
+        ]), $id);
 
-        $contact->first_name = $request->first_name;
-        $contact->last_name  = $request->last_name;
-        $contact->email = $request->email;
-        $contact->phone = $request->phone;
+        if($result)
+            return redirect()->back()->with('success', 'Contato editado com sucesso.');
 
-        if($contact->save())
-            return 'edit contact with success';
-
-        return 'failed to edit the contact ';
+        return redirect()->back()->withErrors(['message' => 'Ocorreu um erro ao editar contato, tente novamente.']);
     }
 
     /**
@@ -114,13 +113,10 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        $contact =  Contact::find($id);
-        if(!$contact)
-            return  'err';
+        $result = $this->contactRepository->getById($id);
+        if($result)
+            return redirect()->back()->with('success', 'Contato excluido com sucesso.');
 
-        if($contact->delete())
-            return 'success';
-
-        return 'err, try again';
+        return redirect()->back()->withErrors(['message' => 'Ocorreu um erro ao excluir o contato, tente novamente.']);
     }
 }
