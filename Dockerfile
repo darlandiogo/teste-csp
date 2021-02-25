@@ -11,9 +11,6 @@ RUN docker-php-ext-install pdo pdo_mysql
 
 COPY . .
 
-#docker run --rm -v $(pwd):/app composer install
-#docker-compose exec app php artisan key:generate
-
 RUN composer install
 
 RUN npm install
