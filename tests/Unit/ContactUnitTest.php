@@ -30,6 +30,8 @@ class ContactUnitTest extends TestCase
     public function test_edit_new_contact()
     {
         $contactRepository = new ContactRepository;
+        $contacts = $contactRepository->all(['search' => 'Jose dos Santos']);
+        $contact  = $contacts[0];
 
         $params = [
             'first_name' => 'Jose',
@@ -38,14 +40,17 @@ class ContactUnitTest extends TestCase
             'phone' => '(21)9999-99999',
         ];
 
-        $result = $contactRepository->edit($params, 1);
+        $result = $contactRepository->edit($params, $contact->id);
         $this->assertEquals(true, $result);
     }
 
     public function test_delete_new_contact()
     {
         $contactRepository = new ContactRepository;
-        $result = $contactRepository->delete(1);
+        $contacts = $contactRepository->all(['search' => 'Jose dos Santos']);
+        $contact  = $contacts[0];
+
+        $result = $contactRepository->delete($contact->id);
         $this->assertEquals(true, $result);
     }
 
