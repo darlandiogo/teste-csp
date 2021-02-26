@@ -10,7 +10,9 @@ RUN docker-php-ext-install pdo_mysql
 
 COPY . .
 
-RUN composer install
+RUN composer update
+
+RUN composer dump-autoload
 
 RUN npm install
 
