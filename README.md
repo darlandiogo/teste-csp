@@ -8,7 +8,9 @@
 - MariaDB (https://mariadb.org/download/)
 ## Instalação
 - Faça o clone ou download do projeto acima
-- Acesse a pasta teste-csp
+- Acesse o prompt de comando(windows) ou terminal(linux)
+- Usando o cmd/terminal digite o commando "cd teste-csp" para acessar a pasta teste-csp
+- após digite o comando "cp .env.example .env" para gerar o arquivo .env
 - configure as seguintes variavéis de ambiente no arquivo .env 
 
     * DB_CONNECTION=mysql
