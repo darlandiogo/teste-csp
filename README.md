@@ -24,16 +24,12 @@
 ## Comandos para instalar as dependências no docker ( Linux )
     sudo docker run --rm -v $(pwd):/app composer install
     sudo docker-compose build
-    docker exec -it teste-csp sh
-    php artisan migrate
-    php artisan key:generate
+    
     
 ## Comandos para instalar as dependências no docker ( Windows )
     docker run --rm -v $(pwd):/app composer install
     docker-compose build
-    docker exec -it teste-csp bash
-    php artisan migrate
-    php artisan key:generate
+
     
     
 ## Comandos para executar o projeto no docker ( Linux )
@@ -43,6 +39,19 @@
 ## Comandos para executar o projeto no docker ( Windows )
     docker-compose up para inicializar o projeto
     docker-compose down para parar o projeto
+
+## Será necessário rodar os comandos abaixo ao rodar o projeto pela primeira vez
+- Linux
+
+    sudo docker exec -it teste-csp sh
+    php artisan migrate
+    php artisan key:generate
+
+- Windows
+
+    docker exec -it teste-csp bash
+    php artisan migrate
+    php artisan key:generate
 
 ![alt-text](https://media.giphy.com/media/d5KuLHHTSaRnG/giphy.gif)
 
