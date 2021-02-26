@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 
 use Tests\TestCase;
-use App\Models\Contact;
+use App\Repositories\ContactRepository;
 class ContactUnitTest extends TestCase
 {
     /**
@@ -14,12 +14,16 @@ class ContactUnitTest extends TestCase
      */
     public function test_create_new_contact()
     {
-        $contact = new Contact;
-        $contact->first_name = 'Jose';
-        $contact->last_name  = 'dos Santos';
-        $contact->email = 'jose@outlook.com';
-        $contact->phone = '(21)9999-99999';
-        $result = $contact->save();
+        $contactRepository = new ContactRepository;
+
+        $params = [
+            'first_name' => 'Jose',
+            'last_name' => 'dos Santos',
+            'email' => 'jose@outlook.com',
+            'phone' => '(21)9999-99999',
+        ];
+
+        $result = $contactRepository->create($params);
         $this->assertEquals(true, $result);
     }
 
