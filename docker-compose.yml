@@ -9,7 +9,7 @@ services:
     image: php:alpine
     volumes:
       - "./:/teste-csp"
-    command: php artisan migrate
+    command: php artisan migrate:fresh
     command: php artisan serve
     ports:
       - 8000:8000

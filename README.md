@@ -22,19 +22,19 @@
          DB_PASSWORD=
 
 ## Comandos para instalar as dependências no docker ( Linux )
-    sudo docker run --rm -v $(pwd):/app composer install
+    sudo docker run --rm -v $(pwd):/teste-csp composer install
+    sudo docker run --rm -v $(pwd):/teste-csp php artisan migrate
+    sudo docker run --rm -v $(pwd):/teste-csp php artisan key:generate
     sudo docker-compose build
 ## Comandos para instalar as dependências no docker ( Windows )
-    docker run --rm -v $(pwd):/app composer install
+    docker run --rm -v $(pwd):/teste-csp composer install
+    docker run --rm -v $(pwd):/teste-csp php artisan migrate
+    docker run --rm -v $(pwd):/teste-csp php artisan key:generate
     docker-compose build
-    docker run -v $(pwd):/app php artisan migrate
-    docker run  -v $(pwd):/app php artisan key:generate
     
 ## Comandos para executar o projeto no docker ( Linux )
     sudo docker-compose up para inicializar o projeto
     sudo docker-compose down para parar o projeto
-    sudo docker run -v $(pwd):/app php artisan migrate
-    sudo docker run  -v $(pwd):/app php artisan key:generate
 
 ## Comandos para executar o projeto no docker ( Windows )
     docker-compose up para inicializar o projeto
