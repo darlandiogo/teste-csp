@@ -20,7 +20,7 @@
     * DB_USERNAME=root
     * DB_PASSWORD=
 
-- para instalar as dependências use os commandos abaixo
+- para instalar as dependências use os comandos abaixo
     * sudo docker run --rm -v $(pwd):/app composer install (Linux)
     * sudo docker-compose build (Linux)
 
