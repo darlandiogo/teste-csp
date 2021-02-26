@@ -27,4 +27,26 @@ class ContactUnitTest extends TestCase
         $this->assertEquals(true, $result);
     }
 
+    public function test_edit_new_contact()
+    {
+        $contactRepository = new ContactRepository;
+
+        $params = [
+            'first_name' => 'Jose',
+            'last_name' => 'dos Santos',
+            'email' => 'jose@outlook.com',
+            'phone' => '(21)9999-99999',
+        ];
+
+        $result = $contactRepository->edit($params, 1);
+        $this->assertEquals(true, $result);
+    }
+
+    public function test_delete_new_contact()
+    {
+        $contactRepository = new ContactRepository;
+        $result = $contactRepository->delete(1);
+        $this->assertEquals(true, $result);
+    }
+
 }

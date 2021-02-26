@@ -22,7 +22,7 @@
          DB_PASSWORD=
 
 ## Comandos para instalar as dependências no docker ( Linux )
-     sudo docker run --rm -v $(pwd):/app composer install
+    sudo docker run --rm -v $(pwd):/app composer install
     sudo docker-compose build
 ## Comandos para instalar as dependências no docker ( Windows )
     docker run --rm -v $(pwd):/app composer install
