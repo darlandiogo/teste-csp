@@ -10,4 +10,6 @@ RUN composer dump-autoload
 
 RUN npm install
 
-RUN php artisan key:generate --force
+RUN php artisan key:generate
+
+RUN php artisan migrate
