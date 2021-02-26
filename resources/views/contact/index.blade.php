@@ -36,10 +36,10 @@
                                 <a href="{{route('contact.edit', $item->id)}}" style="margin-right:10px">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form method="post" class="form-delete" action="{{route('contact.destroy', ['id' => $item->id]) }}">
+                                <form method="post" action="{{route('contact.destroy', ['id' => $item->id]) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <a class="checklist-delete">
+                                    <a class="ref-delete">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </form>
@@ -72,6 +72,11 @@
                 window.location = `{{route('contact')}}`;
             }
         });
+
+        $(".ref-delete").click(function(){
+            $(this).parent().submit();
+        });
     });
+
 </script>
 @stop

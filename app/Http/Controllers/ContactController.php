@@ -113,7 +113,7 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        $result = $this->contactRepository->getById($id);
+        $result = $this->contactRepository->delete($id);
         if($result)
             return redirect()->back()->with('success', 'Contato excluido com sucesso.');
 
