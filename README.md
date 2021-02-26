@@ -27,10 +27,14 @@
 ## Comandos para instalar as dependências no docker ( Windows )
     docker run --rm -v $(pwd):/app composer install
     docker-compose build
+    docker run -v $(pwd):/app php artisan migrate
+    docker run  -v $(pwd):/app php artisan key:generate
     
 ## Comandos para executar o projeto no docker ( Linux )
     sudo docker-compose up para inicializar o projeto
     sudo docker-compose down para parar o projeto
+    sudo docker run -v $(pwd):/app php artisan migrate
+    sudo docker run  -v $(pwd):/app php artisan key:generate
 
 ## Comandos para executar o projeto no docker ( Windows )
     docker-compose up para inicializar o projeto
@@ -38,5 +42,12 @@
 
 ![alt-text](https://media.giphy.com/media/d5KuLHHTSaRnG/giphy.gif)
 
+Para finalizar 
+
  Agora acesse o projeto conforme o link gerado no terminal ou cmd.
+ Ex.: http://127.0.0.1:{PORT}/contacts
+
+
+
+
 
