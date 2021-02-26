@@ -21,11 +21,12 @@
     * DB_PASSWORD=
 
 - para instalar as dependências use os commandos abaixo
+    * sudo docker run --rm -v $(pwd):/app composer install (Linux)
     * sudo docker-compose build (Linux)
-    * sudo docker run --rm -v $(pwd):/app composer install(Linux)
-    
+
+    * docker run --rm -v $(pwd):/app composer install (Windows)
     * docker-compose build  (Windows)
-    * docker run --rm -v $(pwd):/app composer install(Windows)
+    
 
 ## Comandas para executar o projeto ( Linux )
 - sudo docker-compose up -d para inicializar o projeto
