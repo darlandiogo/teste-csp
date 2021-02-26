@@ -23,14 +23,16 @@
 
 ## Comandos para instalar as dependências no docker ( Linux )
     sudo docker run --rm -v $(pwd):/app composer install
+    sudo docker-compose build
     sudo docker run --rm -v $(pwd):/app php artisan migrate
     sudo docker run --rm -v $(pwd):/app php artisan key:generate
-    sudo docker-compose build
+    
 ## Comandos para instalar as dependências no docker ( Windows )
     docker run --rm -v $(pwd):/app composer install
+    docker-compose build
     docker run --rm -v $(pwd):/app php artisan migrate
     docker run --rm -v $(pwd):/app php artisan key:generate
-    docker-compose build
+    
     
 ## Comandos para executar o projeto no docker ( Linux )
     sudo docker-compose up para inicializar o projeto
