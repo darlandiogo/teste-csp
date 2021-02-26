@@ -14,27 +14,27 @@
 - crie uma base de dados usando o MySQL
 - configure as seguintes variavéis de ambiente no arquivo .env 
 
-    * DB_CONNECTION=mysql
-    * DB_HOST=127.0.0.1
-    * DB_PORT=3306
-    * DB_DATABASE=teste-csp 
-    * DB_USERNAME=root
-    * DB_PASSWORD=
+         DB_CONNECTION=mysql
+         DB_HOST=127.0.0.1
+         DB_PORT=3306
+         DB_DATABASE=teste-csp 
+         DB_USERNAME=root
+         DB_PASSWORD=
 
 ## Comandos para instalar as dependências no docker ( Linux )
-    * sudo docker run --rm -v $(pwd):/app composer install
-    * sudo docker-compose build
+     sudo docker run --rm -v $(pwd):/app composer install
+    sudo docker-compose build
 ## Comandos para instalar as dependências no docker ( Windows )
-    * docker run --rm -v $(pwd):/app composer install
-    * docker-compose build
+    docker run --rm -v $(pwd):/app composer install
+    docker-compose build
     
 ## Comandos para executar o projeto no docker ( Linux )
-- sudo docker-compose up para inicializar o projeto
-- sudo docker-compose down para parar o projeto
+    sudo docker-compose up para inicializar o projeto
+    sudo docker-compose down para parar o projeto
 
 ## Comandos para executar o projeto no docker ( Windows )
--  docker-compose up para inicializar o projeto
--  docker-compose down para parar o projeto
+    docker-compose up para inicializar o projeto
+    docker-compose down para parar o projeto
 
 ![alt-text](https://media.giphy.com/media/d5KuLHHTSaRnG/giphy.gif)
 
