@@ -40,18 +40,18 @@
     docker-compose up para inicializar o projeto
     docker-compose down para parar o projeto
 
-## Será necessário rodar os comandos abaixo ao rodar o projeto pela primeira vez
+## * Será necessário rodar os comandos abaixo ao rodar o projeto pela primeira vez
 - Linux
 
-    sudo docker exec -it teste-csp sh
-    php artisan migrate
-    php artisan key:generate
+        sudo docker exec -it teste-csp sh
+        php artisan migrate
+        php artisan key:generate
 
 - Windows
 
-    docker exec -it teste-csp bash
-    php artisan migrate
-    php artisan key:generate
+        docker exec -it teste-csp bash
+        php artisan migrate
+        php artisan key:generate
 
 ![alt-text](https://media.giphy.com/media/d5KuLHHTSaRnG/giphy.gif)
 
